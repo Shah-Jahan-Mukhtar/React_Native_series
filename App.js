@@ -7,8 +7,8 @@ import Food from './components/food'
 // import { createStackNavigator } from '@react-navigation/stack';
 
 const FOOD=[
-  {title:' Beghair Charbi Wala Khana',data:['Apples', 'Orange']},
-  {title:'Charbi Wala Khana' , data:['Cookies', 'Biryani', 'Cake']}
+  {title:'Healthy food',data:['Apples', 'Broccoli']},
+  {title:'Non Healthy food' , data:['Cookies', 'Doritos', 'Eclairs']}
 ]
 
 
@@ -21,7 +21,7 @@ const  App=()=> {
       sections={FOOD}
       keyExtractor={(item)=>item}
       renderItem={(data)=><Food name={data.item} /> }
-      renderSectionHeader={({section})=>(<Text style={styles.heading}>{section.title}:</Text>)}
+      renderSectionHeader={({section})=>(<Text style={styles.heading}>{section.title}</Text>)}
       // ListHeaderComponent={<Text style={styles.heading}>Solarized</Text>}
       />
     </SafeAreaView>
@@ -40,9 +40,7 @@ const styles=StyleSheet.create({
   heading:{
     fontSize:30,
     fontWeight:'bold',
-   backgroundColor:'red',
-   marginBottom:10,
-   borderRadius:20
+    marginBottom:10
   }
 })
 
