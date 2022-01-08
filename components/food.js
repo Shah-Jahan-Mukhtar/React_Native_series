@@ -13,7 +13,7 @@ const Food=(props)=>{
 
 const styles=StyleSheet.create({
     container:{
-        backgroundColor:'cyan',
+        backgroundColor:'#DFFF00',
         padding:10,
         marginBottom:10,
         height:200,

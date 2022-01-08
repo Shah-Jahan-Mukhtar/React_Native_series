@@ -1,48 +1,28 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,FlatList,SafeAreaView,SectionList} from 'react-native';
-import Colors from './components/colorBox';
-import Food from './components/food'
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
+import Home from './screens/Home';
+import ColorPalette from './screens/ColorPalette';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const FOOD=[
-  {title:'Healthy food',data:['Apples', 'Broccoli']},
-  {title:'Non Healthy food' , data:['Cookies', 'Doritos', 'Eclairs']}
-]
 
+const Stack = createStackNavigator();
 
 
 const  App=()=> {
   return (
-    <SafeAreaView style={{alignContent:'center',alignItems:'center',marginTop:25}}>
-      <SectionList
-      style={styles.container}
-      sections={FOOD}
-      keyExtractor={(item)=>item}
-      renderItem={(data)=><Food name={data.item} /> }
-      renderSectionHeader={({section})=>(<Text style={styles.heading}>{section.title}</Text>)}
-      // ListHeaderComponent={<Text style={styles.heading}>Solarized</Text>}
-      />
-    </SafeAreaView>
+    <NavigationContainer >
+      <Stack.Navigator >
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="ColorPalette" component={ColorPalette}/>
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles=StyleSheet.create({
-  
-  container:{
-    paddingTop:50,
-    paddingHorizontal:10,
-    paddingBottom:20,
-    width:340
 
-  },
-  heading:{
-    fontSize:30,
-    fontWeight:'bold',
-    marginBottom:10
-  }
-})
 
 
 
@@ -97,3 +77,39 @@ export default App;
 //   );
 // }
 
+
+
+// Section List
+
+// const FOOD=[
+//   {title:'Healthy food',data:['Apples', 'Broccoli']},
+//   {title:'Non Healthy food' , data:['Cookies', 'Doritos', 'Eclairs']}
+// ]
+
+{/* <SafeAreaView style={{alignContent:'center',alignItems:'center',marginTop:25}}>
+      <SectionList
+      style={styles.container}
+      sections={FOOD}
+      keyExtractor={(item)=>item}
+      renderItem={(data)=><Food name={data.item} /> }
+      renderSectionHeader={({section})=>(<Text style={styles.heading}>{section.title}</Text>)}
+      // ListHeaderComponent={<Text style={styles.heading}>Solarized</Text>}
+      />
+    </SafeAreaView> */}
+
+
+// const styles=StyleSheet.create({
+  
+//   container:{
+//     paddingTop:50,
+//     paddingHorizontal:10,
+//     paddingBottom:20,
+//     width:340
+
+//   },
+//   heading:{
+//     fontSize:30,
+//     fontWeight:'bold',
+//     marginBottom:10
+//   }
+// })
