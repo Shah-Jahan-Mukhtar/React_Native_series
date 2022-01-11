@@ -1,50 +1,36 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View ,FlatList,SafeAreaView,SectionList} from 'react-native';
-import Home from './screens/Home';
-import ColorPalette from './screens/ColorPalette';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  SafeAreaView,
+  SectionList,
+} from "react-native";
+import Home from "./screens/Home";
+import ColorPalette from "./screens/ColorPalette";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-
-const  App=()=> {
+const App = () => {
   return (
-    <NavigationContainer >
-      <Stack.Navigator >
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="ColorPalette" component={ColorPalette}
-        options={({ route }) => ({ title: route.params.paletteName })}
-  
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="ColorPalette"
+          component={ColorPalette}
+          options={({ route }) => ({ title: route.params.paletteName })}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
-
-
-
-
-
+};
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const COLORS = [
 //   { colorName: 'Base03', hexCode: '#002b36' },
@@ -80,8 +66,6 @@ export default App;
 //   );
 // }
 
-
-
 // Section List
 
 // const FOOD=[
@@ -89,7 +73,8 @@ export default App;
 //   {title:'Non Healthy food' , data:['Cookies', 'Doritos', 'Eclairs']}
 // ]
 
-{/* <SafeAreaView style={{alignContent:'center',alignItems:'center',marginTop:25}}>
+{
+  /* <SafeAreaView style={{alignContent:'center',alignItems:'center',marginTop:25}}>
       <SectionList
       style={styles.container}
       sections={FOOD}
@@ -98,11 +83,11 @@ export default App;
       renderSectionHeader={({section})=>(<Text style={styles.heading}>{section.title}</Text>)}
       // ListHeaderComponent={<Text style={styles.heading}>Solarized</Text>}
       />
-    </SafeAreaView> */}
-
+    </SafeAreaView> */
+}
 
 // const styles=StyleSheet.create({
-  
+
 //   container:{
 //     paddingTop:50,
 //     paddingHorizontal:10,
