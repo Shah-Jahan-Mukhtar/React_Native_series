@@ -1,7 +1,8 @@
 import React from 'react'
-import {View,Text,TouchableOpacity,StyleSheet,FlatList} from 'react-native';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import {Text,StyleSheet,FlatList} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View } from 'react-native-web';
+import PalettePreview from '../components/PalettePreview';
 
 const SOLARIZED = [
     { colorName: 'Base03', hexCode: '#002b36' },
@@ -22,11 +23,7 @@ const SOLARIZED = [
     { colorName: 'Green', hexCode: '#859900' },
   ];
 
-  const COLOR_PALETTES = [
-    { paletteName: 'Solarized', colors: SOLARIZED },
-    { paletteName: 'Frontend Masters', colors: FRONTEND_MASTERS },
-    { paletteName: 'Rainbow', colors: RAINBOW },
-  ];
+ 
 
   const RAINBOW = [
     { colorName: 'Red', hexCode: '#FF0000' },
@@ -44,6 +41,12 @@ const SOLARIZED = [
     { colorName: 'Orange', hexCode: '#e66225' },
   ];
 
+  const COLOR_PALETTES = [
+    { paletteName: 'Solarized', colors: SOLARIZED },
+    { paletteName: 'Frontend Masters', colors: FRONTEND_MASTERS },
+    { paletteName: 'Rainbow', colors: RAINBOW },
+  ];
+
 
 const Home=({navigation})=>{
     return(
@@ -52,17 +55,22 @@ const Home=({navigation})=>{
         data={COLOR_PALETTES}
         keyExtractor={item=>item.paletteName}
         renderItem={({item})=>(
-        <TouchableOpacity onPress={()=>{
-          navigation.navigate('ColorPalette',item)
-      }}> 
-      <Text >{item.paletteName}!</Text>
-      </TouchableOpacity>
+        <PalettePreview 
+        handlePress={()=>{
+          navigation.navigate('ColorPalette',item);
+          
+        }}
+        colorPalette={item}
+        />
+        
+        
+    
         )}
         
         
         />
         
-           
+        
     )
 };
 
